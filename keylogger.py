@@ -14,11 +14,8 @@ def on_press(key):
         print(f"Special key {key} pressed")
 
 def on_release(key):
-    try:
-        print(f"Key {key.char} released")
-    except AttributeError:
-        print(f"Special key {key} released")
-    if key == keyboard.Key.esc:  # Correct capitalization
+    print(f"Key {key} released")
+    if key == keyboard.Key.esc:
         return False
 
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
