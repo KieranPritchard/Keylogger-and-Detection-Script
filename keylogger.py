@@ -16,3 +16,6 @@ def on_release(key):
     print(f"Key {key.char} released")
     if key == keyboard.key.esc:
         return False
+
+with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+    listener.join()
