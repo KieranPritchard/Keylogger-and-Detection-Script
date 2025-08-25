@@ -11,3 +11,8 @@ def on_press(key):
         keys_pressed = keys_pressed + key.char
     except AttributeError:
         print(f"Special key {key} pressed")
+
+def on_release(key):
+    print(f"Key {key.char} released")
+    if key == keyboard.key.esc:
+        return False
