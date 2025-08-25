@@ -9,7 +9,7 @@ def on_press(key):
     global keys_pressed
     try:
         print(f"Key {key.char} pressed")
-        keys_pressed = keys_pressed + key.char
+        keys_pressed += key.char
     except AttributeError:
         print(f"Special key {key} pressed")
 
