@@ -8,7 +8,6 @@ def detect_script():
         process =  psutil.Process(proc[0])
 
         if process.name() == keylogger_file:
-            process.terminate()
-            print("Script was successfully removed.")
+            print("Script was Found.")
         else:
             print("Script not found yet.")
