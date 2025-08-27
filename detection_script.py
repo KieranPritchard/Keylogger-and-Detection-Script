@@ -6,14 +6,15 @@ text_log = "Python/Projects/Keylogger-and-Detection-Script/key_presses.txt"
 
 def detect_script():
     for proc in psutil.process_iter(["pid", "name", "username"]):
-        process =  psutil.Process(proc[0])
-
-        if process.name() == keylogger_file:
-            print("[+] Script was found.")
-            return True, process
-        else:
-            print("[+] Script not found.")
-            return False
+        try:
+            if proc.info["name"] == keylogger_file:
+                print("[+] Script was found.")
+                return True, proc
+        except Exception as e:
+            print("error encountered")
+        
+    print("[+] Script not found.")
+    return False, None
 
 def detect_text_log():
     file_exists = os.path.exists(text_log)
@@ -25,17 +26,17 @@ def detect_text_log():
         print("[+] Log was not found")
         return False
 
-def terminate_script(process):
-    process.terminate()
+def terminate_script(proc):
+    proc.terminate()
     print("[+] Process Terminated")
 
 def delete_log(text_log):
     os.remove(text_log)
 
 def main():
-    print("=" * 30)
+    print("=" * 60)
     print("Keylogger Detection Script")
-    print("=" * 30)
+    print("=" * 60)
 
     script_detection_result, keylogger_process = detect_script()
     log_detection_result = detect_text_log()
@@ -43,3 +44,6 @@ def main():
     if script_detection_result == True and log_detection_result == True:
         terminate_script(keylogger_process)
         delete_log(text_log)
+
+if __name__ == "__main__":
+    main()
