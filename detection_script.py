@@ -9,10 +9,10 @@ def detect_script():
         process =  psutil.Process(proc[0])
 
         if process.name() == keylogger_file:
-            print("[+] Script was Found.")
-            return True
+            print("[+] Script was found.")
+            return True, process
         else:
-            print("[+] Script not found yet.")
+            print("[+] Script not found.")
             return False
 
 def detect_text_log():
@@ -24,3 +24,10 @@ def detect_text_log():
     else:
         print("[+] Log was not found")
         return False
+
+def terminate_script(process):
+    process.terminate()
+    print("[+] Process Terminated")
+
+def delete_log(text_log):
+    os.remove(text_log)
