@@ -11,7 +11,7 @@ def detect_script(keylogger_file):
         except Exception as e:
             print(f"error encountered: {e}")
         
-    print("[+] Script not found.")
+    print("[-] Script not found.")
     return False, None
 
 def detect_text_log(text_log):
@@ -21,7 +21,7 @@ def detect_text_log(text_log):
         print("[+] Log was found")
         return True
     else:
-        print("[+] Log was not found")
+        print("[-] Log was not found")
         return False
 
 def terminate_script(proc):
@@ -30,6 +30,7 @@ def terminate_script(proc):
 
 def delete_log(text_log):
     os.remove(text_log)
+    print("[+] Log was deleted.")
 
 def main():
     keylogger_file = "Python/Projects/Keylogger-and-Detection-Script/keylogger.py"
@@ -44,6 +45,8 @@ def main():
 
     if script_detection_result == True and log_detection_result == True:
         terminate_script(keylogger_process)
+        delete_log(text_log)
+    elif log_detection_result == True and script_detection_result == False:
         delete_log(text_log)
 
 if __name__ == "__main__":
