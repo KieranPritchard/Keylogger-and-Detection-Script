@@ -11,7 +11,7 @@ def detect_script():
                 print("[+] Script was found.")
                 return True, proc
         except Exception as e:
-            print("error encountered")
+            print(f"error encountered: {e}")
         
     print("[+] Script not found.")
     return False, None
