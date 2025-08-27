@@ -61,7 +61,7 @@ I successfully implemented a working **keylogger** that records keystrokes in a 
 ### 1. Clone the repository
 
 ```
-git clone <repository-url>
+git clone https://github.com/KieranPritchard/Keylogger-and-Detection-Script.git
 cd <repository-folder>
 ```
 ### 2. Install dependencies
