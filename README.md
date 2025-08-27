@@ -2,23 +2,17 @@
 
 <div align="center">
 
-<img alt="GitHub Created At" src="https://img.shields.io/github/created-at/KieranPritchard/Keylogger-and-Detection-Script
-">
+<img alt="GitHub Created At" src="https://img.shields.io/github/created-at/KieranPritchard/Keylogger-and-Detection-Script">
 
-<img alt="GitHub License" src="https://img.shields.io/github/license/KieranPritchard/Keylogger-and-Detection-Script
-">
+<img alt="GitHub License" src="https://img.shields.io/github/license/KieranPritchard/Keylogger-and-Detection-Script">
 
-<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/t/KieranPritchard/Keylogger-and-Detection-Script
-">
+<img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/t/KieranPritchard/Keylogger-and-Detection-Script">
 
-<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/KieranPritchard/Keylogger-and-Detection-Script
-">
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/KieranPritchard/Keylogger-and-Detection-Script">
 
-<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/KieranPritchard/Keylogger-and-Detection-Script
-">
+<img alt="GitHub language count" src="https://img.shields.io/github/languages/count/KieranPritchard/Keylogger-and-Detection-Script">
 
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/KieranPritchard/Keylogger-and-Detection-Script
-">
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/KieranPritchard/Keylogger-and-Detection-Script">
 
 </div>
 
