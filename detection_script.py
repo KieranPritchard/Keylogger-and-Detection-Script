@@ -41,8 +41,8 @@ def delete_log(text_log):
 
 # This is the main logic of the program that triggers the forementioned functions
 def main():
-    keylogger_file = "Python/Projects/Keylogger-and-Detection-Script/keylogger.py"
-    text_log = "Python/Projects/Keylogger-and-Detection-Script/key_presses.txt"
+    keylogger_file = "/Keylogger-and-Detection-Script/keylogger.py"
+    text_log = "/Keylogger-and-Detection-Script/key_presses.txt"
 
     print("=" * 60)
     print("Keylogger Detection Script")

