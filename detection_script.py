@@ -31,3 +31,15 @@ def terminate_script(process):
 
 def delete_log(text_log):
     os.remove(text_log)
+
+def main():
+    print("=" * 30)
+    print("Keylogger Detection Script")
+    print("=" * 30)
+
+    script_detection_result, keylogger_process = detect_script()
+    log_detection_result = detect_text_log()
+
+    if script_detection_result == True and log_detection_result == True:
+        terminate_script(keylogger_process)
+        delete_log(text_log)
