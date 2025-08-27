@@ -5,7 +5,7 @@ def detect_script(keylogger_file):
     for proc in psutil.process_iter(["pid", "name", "username", "cmdline"]):
         try:
             cmdline = proc.info.get("cmdline")
-            if cmdline and keylogger_file in cmdline:
+            if cmdline and os.path.basename(keylogger_file) in cmdline[-1]:
                 print("[+] Script was found.")
                 return True, proc
         except Exception as e:
