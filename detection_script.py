@@ -10,8 +10,10 @@ def detect_script():
 
         if process.name() == keylogger_file:
             print("[+] Script was Found.")
+            return True
         else:
             print("[+] Script not found yet.")
+            return False
 
 def detect_text_log():
     file_exists = os.path.exists(text_log)
