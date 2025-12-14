@@ -20,7 +20,7 @@
 
 ### Objective
 
-The goal of this project is to create an **ethical hacking demonstration** by building a keylogger and an accompanying detection script, showcasing both **red team (offensive)** and **blue team (defensive)** skills.
+The goal of this project is to create an **ethical hacking demonstration** by building a keylogger and an accompanying detection script, showcasing both **red team (offensive)** and **blue team (defensive)** skills. Another thing I wanted to accomplish was demostrating a way to show data exfiltration with sending the log files from the key strokes back to the attacker, this was accomplished with using discord bot webhooks in the end.
 
 
 ### Technology and Tools Used
